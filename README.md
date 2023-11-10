@@ -1,6 +1,6 @@
-# Data Engineering Mini Project 2
+# Data Engineering Mini Project 10
 ## Purpose
-The purpose of this project is to use the previous template and pandas to analyze a dataset, obtain its summary statistics and visualization. The dataset used here is the "cereal" dataset, which contains statistics of different cereal brands, including calories, ratings, weight, etc.
+The purpose of this project is to use PySpark to perform data processing on a large dataset. A Spark SQL query and a data transformation are included in this project. The dataset used is extracted from FiveThrityEight's public datasets, involving births data from 1994 - 2003. 
 
 ## Steps
 1. Add python to requirement.txt
