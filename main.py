@@ -1,6 +1,7 @@
 """
-Main goes here
+Main
 """
+
 from mylib.lib import (
     extract,
     load_data,
@@ -16,7 +17,7 @@ def main():
     # extract data
     extract()
     # start spark session
-    spark = start_spark("Birth")
+    spark = start_spark("BIRTH")
     # load data into dataframe
     df = load_data(spark)
     # example metrics
@@ -25,8 +26,8 @@ def main():
     query(
         spark,
         df,
-        "SELECT YEAR, Month, Births FROM Birth where Births>8000",
-        "Birth",
+        "SELECT YEAR, Month, Births FROM BIRTHS where Births>8000",
+        "BIRTHS",
     )
     # example transform
     example_transform(df)
