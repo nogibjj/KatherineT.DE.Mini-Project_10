@@ -3,27 +3,22 @@
 The purpose of this project is to use PySpark to perform data processing on a large dataset. A Spark SQL query and a data transformation are included in this project. The dataset used is extracted from FiveThrityEight's public datasets, involving births data from 1994 - 2003. 
 
 ## Steps
-1. Add python to requirement.txt
-2. In main.py, define two functions. One returns the summary statistics and the other visualizes the data.
-3. Add test cases in test_main.py.  
+1. Add PySpark to requirement.txt
+2. In my.lib, create four files that perform four functions. Extract.py extract a dataset from a URL. Transform.py cleans,fliters the dataset. Load.py transforms the data into SQLite database. Query.py retrieves from the data and performs update,create, etc
+3. Edit main.py to call the functions
+4. Add test cases in test_main.py
+5. Create output file
 
 ## Check format and test
 Use make test command to test the code
-<img width="954" alt="Screen Shot 2023-09-10 at 11 12 38 PM" src="https://github.com/nogibjj/KatherineT.W2/assets/143833511/31148657-b039-411b-b216-1c593fb48600">
+
+![Screenshot 2023-11-09 at 8 15 06 PM](https://github.com/nogibjj/KatherineT.DE.Mini-Project_10/assets/143833511/9f4d07a0-4ed5-485f-afff-c7ff2d8572ef)
+
 
 Use make lint and format command to check the format
 
+![Screenshot 2023-11-09 at 8 15 14 PM](https://github.com/nogibjj/KatherineT.DE.Mini-Project_10/assets/143833511/9dad9e9d-033d-43de-a58a-07b7325bfc8e)
 
 
-<img width="582" alt="Screen Shot 2023-09-10 at 11 14 20 PM" src="https://github.com/nogibjj/KatherineT.W2/assets/143833511/045bb7e5-37da-4b97-9c20-2ad734453bc0">
+### The results can be found in pyspark_output.md
 
-
-## Result
-### The following results can also be found in report.md
-This is the summary statistics of all numeric variables in the cereal dataset. There are 13 variables and 8 rows. 
-<img width="573" alt="Screen Shot 2023-09-10 at 4 54 05 PM" src="https://github.com/nogibjj/KatherineT.W2/assets/143833511/5e2ed863-c0c6-41e1-b8ff-45431ae33650">
-
-This is the histogram of the calories variable. 
-
-![Histogram](https://github.com/nogibjj/KatherineT.W2/assets/143833511/f400a3a4-8163-487b-9755-2447c46e0800)
- 
