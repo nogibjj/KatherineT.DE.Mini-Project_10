@@ -1,3 +1,6 @@
+"""
+library functions
+"""
 import os
 import requests
 from pyspark.sql import SparkSession
@@ -7,9 +10,13 @@ from pyspark.sql.types import (
      StructType, 
      StructField, 
      IntegerType, 
+     # StringType, 
+     # DateType
 )
 
-LOG_FILE = "output_report.md"
+LOG_FILE = "pyspark_output.md"
+
+
 def log_output(operation, output, query=None):
     """adds to a markdown file"""
     with open(LOG_FILE, "a") as file:
@@ -19,6 +26,9 @@ def log_output(operation, output, query=None):
         file.write("The truncated output is: \n\n")
         file.write(output)
         file.write("\n\n")
+
+
+
 
 def start_spark(appName):
     spark = SparkSession.builder.appName(appName).getOrCreate()
@@ -30,7 +40,7 @@ def end_spark(spark):
 
 def extract(
     url="""
-    https://github.com/fivethirtyeight/data/blob/master/births/US_births_1994-2003_CDC_NCHS.csv?raw=true 
+   https://github.com/fivethirtyeight/data/blob/master/births/US_births_1994-2003_CDC_NCHS.csv?raw=true 
     """,
     file_path="data/Birth.csv",
     directory="data",
@@ -45,7 +55,7 @@ def extract(
 
     return file_path
 
-def load_data(spark, data="data/births.csv", name="Birth"):
+def load_data(spark, data="data/Birth.csv", name="BIRTH"):
     """load data"""
     # data preprocessing by setting schema
     schema = StructType([
@@ -57,7 +67,9 @@ def load_data(spark, data="data/births.csv", name="Birth"):
     ])
 
     df = spark.read.option("header", "true").schema(schema).csv(data)
+
     log_output("load data", df.limit(10).toPandas().to_markdown())
+
     return df
 
 
@@ -76,7 +88,9 @@ def describe(df):
     return df.describe().show()
 
 def example_transform(df):
-    """example transformation"""
+    """does an example transformation on a predefiend dataset"""
+
+
     df = df.withColumn("Births", when(
         col("Births") >10000, 10000
         ))
